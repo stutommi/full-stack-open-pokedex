@@ -5,7 +5,7 @@ on:
     branches:
       - master
   pull_request:
-    branches: [main]
+    branches: [master, main]
     types: [opened, synchronize]
 
 jobs:
@@ -38,3 +38,4 @@ jobs:
           healthcheck: "https://poketommi.herokuapp.com/health"
           checkstring: "ok"
           rollbackonhealthcheckfailed: true
+        if: ${{ github.event_name == 'push' }}
